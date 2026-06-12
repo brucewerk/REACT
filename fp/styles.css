@@ -1,0 +1,427 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+body {
+  background: #000;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* ═══════ DESKTOP (>= 769px) ═══════ */
+@media (min-width: 769px) {
+  header {
+    position: fixed;
+    width: 80vw;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: 1fr 600px;
+    gap: 100px;
+    z-index: 2;
+  }
+  header img { width: 250px; }
+  header nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+  }
+  header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  header nav ul li a:hover { color: #beff1b; }
+
+  section {
+    background-image: radial-gradient(#7f3d9e, #6d00d9);
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  section .list {
+    width: 70vw;
+    height: 100%;
+    margin: auto;
+    position: relative;
+  }
+  section .list::before {
+    content: "";
+    position: absolute;
+    height: 200px;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 1px solid #fff;
+  }
+  section .list .item {
+    position: absolute;
+    inset: 0;
+    transform: translateX(calc(100vw * var(--dir, 1)));
+    transition: transform 0.5s, opacity 0.5s;
+    opacity: 0;
+    pointer-events: none;
+  }
+  section .list .item .car-img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70%;
+  }
+  section .list .item .car-img img {
+    width: 100%;
+    transform: rotate(0deg);
+    transition: transform 0.5s 0.3s;
+  }
+  section .list .item .car-img::before {
+    content: "";
+    position: absolute;
+    background: #000;
+    width: 100%;
+    height: 100px;
+    top: 150%;
+    left: 50px;
+    border-radius: 50%;
+    filter: blur(50px);
+  }
+  section .list .item .content {
+    position: absolute;
+    right: 100px;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    gap: 20px;
+  }
+  section .list .item .content .car-information,
+  section .list .item .content h2,
+  section .list .item .content .description,
+  section .list .item .content .information {
+    transform: translateX(calc(200px * var(--dir, 1)));
+    transition: transform 0.7s 0.3s;
+  }
+  section .list .item .content h2 { transition-delay: 0.5s; }
+  section .list .item .content .description { transition-delay: 0.7s; }
+  section .list .item .content .information { transition-delay: 0.9s; }
+  section .list .item .content .car-information { font-weight: bold; }
+  section .list .item .content h2 {
+    font-size: clamp(4rem, 8vw, 8rem);
+    font-family: "League Gothic", sans-serif;
+  }
+  section .list .item .content .description {
+    color: #d9d9d9;
+    font-size: 12px;
+    text-align: right;
+    max-width: 400px;
+  }
+  section .list .item .content .information {
+    border-radius: 30px;
+    height: 35px;
+    width: 120px;
+    text-transform: uppercase;
+    border: 2px solid #791fd3;
+    background: #beff1b;
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: "League Gothic", sans-serif;
+  }
+  section .list .active {
+    transform: translateX(0) !important;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  section .list .active .car-img img {
+    transform: rotate(-20deg) !important;
+  }
+  section .list .active .content .car-information,
+  section .list .active .content h2,
+  section .list .active .content .description,
+  section .list .active .content .information {
+    transform: translateX(0) !important;
+  }
+  .arrows {
+    width: 70vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25px);
+    display: flex;
+    justify-content: space-between;
+  }
+  .arrows button:nth-child(1) img { transform: scale(-1); }
+  .arrows button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .arrows button img { width: 30px; margin-top: 4px; }
+  .arrows button:hover { background: #beff1b; }
+  .indicators {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 200px;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 15px;
+  }
+  .indicators .number {
+    font-size: 5em;
+    font-family: "League Gothic", sans-serif;
+  }
+  .indicators ul {
+    display: flex;
+    gap: 10px;
+  }
+  .indicators ul li {
+    width: 50px;
+    height: 5px;
+    background: #beff1b;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .indicators ul .active { background: #fff; }
+}
+
+/* ═══════ MOBILE (<= 768px) - TUDO REFEITO ═══════ */
+@media (max-width: 768px) {
+  /* HEADER - fixo, 100% largura, flex */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+    z-index: 20;
+    box-sizing: border-box;
+  }
+  header img {
+    width: 80px;
+    height: auto;
+  }
+  header nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  header nav ul {
+    display: flex;
+    gap: 14px;
+  }
+  header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  /* SECTION - ocupa 100% da tela com fundo roxo */
+  section {
+    width: 100%;
+    min-height: 100dvh;
+    background-image: radial-gradient(#7f3d9e, #6d00d9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 20px 40px;
+    box-sizing: border-box;
+  }
+
+  /* LIST - ocupa toda largura restante */
+  section .list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* ITEMS - apenas o ativo aparece */
+  section .list .item {
+    display: none;
+    width: 100%;
+    text-align: center;
+  }
+  section .list .item.active {
+    display: block;
+  }
+
+  /* CAR IMG */
+  section .list .item .car-img {
+    width: 80%;
+    max-width: 280px;
+    margin: 0 auto 20px;
+    position: relative;
+  }
+  section .list .item .car-img img {
+    width: 100%;
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+  }
+  section .list .active .car-img img {
+    transform: rotate(-10deg);
+  }
+  section .list .item .car-img::before {
+    content: "";
+    position: absolute;
+    background: #000;
+    width: 100%;
+    height: 40px;
+    bottom: -15px;
+    left: 0;
+    border-radius: 50%;
+    filter: blur(30px);
+    opacity: 0.6;
+  }
+
+  /* CONTENT */
+  section .list .item .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  section .list .item .content .car-information {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  section .list .item .content h2 {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    font-family: "League Gothic", sans-serif;
+  }
+  section .list .item .content .description {
+    font-size: 12px;
+    max-width: 90%;
+    color: #d9d9d9;
+  }
+  section .list .item .content .information {
+    width: 120px;
+    height: 35px;
+    border-radius: 30px;
+    border: 2px solid #791fd3;
+    background: #beff1b;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  /* ARROWS (setas laterais fixas) */
+  .arrows {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 12px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 15;
+    box-sizing: border-box;
+  }
+  .arrows button {
+    pointer-events: auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.9);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .arrows button img {
+    width: 22px;
+  }
+  .arrows button:first-child img {
+    transform: scale(-1);
+  }
+
+  /* INDICATORS (bolinhas/linhas na base) */
+  .indicators {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 15;
+  }
+  .indicators .number {
+    font-size: 1.8rem;
+    font-family: "League Gothic", sans-serif;
+  }
+  .indicators ul {
+    display: flex;
+    gap: 10px;
+  }
+  .indicators ul li {
+    width: 28px;
+    height: 3px;
+    background: #beff1b;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .indicators ul li.active {
+    background: white;
+  }
+}
+
+/* Ajustes landscape */
+@media (max-width: 800px) and (orientation: landscape) {
+  section {
+    padding: 60px 20px 20px;
+  }
+  section .list .item .car-img {
+    max-width: 180px;
+  }
+  section .list .item .content h2 {
+    font-size: 2rem;
+  }
+  .arrows button {
+    width: 34px;
+    height: 34px;
+  }
+  .indicators {
+    bottom: 10px;
+  }
+  .indicators .number {
+    font-size: 1.4rem;
+  }
+}
+
+/* Telas muito pequenas */
+@media (max-width: 380px) {
+  header img {
+    width: 70px;
+  }
+  header nav ul {
+    gap: 8px;
+  }
+  header nav ul li a {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>FP Selection</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+  </head>
+  <body>
+    <header>
+      <img src="./img/logo.png" alt="FP Selection Logo" />
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Carros</a></li>
+          <li><a href="#">Fale Conosco</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="home" class="container">
+      <div class="list">
+        <div class="item active">
+          <div class="car-img">
+            <img src="./img/1.png" alt="Porsche 911 Turbo" />
+          </div>
+          <div class="content">
+            <p class="car-information">Único Dono</p>
+            <h2 class="car-name">911 Turbo</h2>
+            <p class="description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel
+              sapien eget nunc efficitur efficitur. Sed at felis a enim
+              efficitur convallis. In hac habitasse platea dictumst. Donec ac
+              ligula a nisl fermentum bibendum.
+            </p>
+            <button class="information">Saiba Mais</button>
+          </div>
+        </div>
+        <div class="item">
+          <div class="car-img">
+            <img src="./img/2.png" alt="Ferrari conversível" />
+          </div>
+          <div class="content">
+            <p class="car-information">Conversível</p>
+            <h2 class="car-name">Ferrari</h2>
+            <p class="description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel
+              sapien eget nunc efficitur efficitur. Sed at felis a enim
+              efficitur convallis. In hac habitasse platea dictumst. Donec ac
+              ligula a nisl fermentum bibendum.
+            </p>
+            <button class="information">Saiba Mais</button>
+          </div>
+        </div>
+        <div class="item">
+          <div class="car-img">
+            <img src="./img/3.png" alt="Lamborghini 2015" />
+          </div>
+          <div class="content">
+            <p class="car-information">2015</p>
+            <h2 class="car-name">Lamborghini</h2>
+            <p class="description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel
+              sapien eget nunc efficitur efficitur. Sed at felis a enim
+              efficitur convallis. In hac habitasse platea dictumst. Donec ac
+              ligula a nisl fermentum bibendum.
+            </p>
+            <button class="information">Saiba Mais</button>
+          </div>
+        </div>
+      </div>
+      <div class="arrows">
+        <button id="prev" aria-label="Anterior"><img src="./img/arrow.png" alt="" /></button>
+        <button id="next" aria-label="Próximo"><img src="./img/arrow.png" alt="" /></button>
+      </div>
+      <div class="indicators">
+        <div class="number">01</div>
+        <ul>
+          <li class="active" data-index="0"></li>
+          <li data-index="1"></li>
+          <li data-index="2"></li>
+        </ul>
+      </div>
+    </section>
+    <script src="./scripts.js"></script>
+  </body>
+</html>
